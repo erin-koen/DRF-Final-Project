@@ -11,3 +11,6 @@ class CustomUserForm(RegistrationForm):
     class Meta:
         model = CustomUser
         fields = ('username', 'email', 'password1', 'password2')
+
+# advanced udemy explainer on creting custom user manager. Since we're creating
+# a new abstract user, all of the hooks that are built in will be a bit diff
