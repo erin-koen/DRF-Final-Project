@@ -1,0 +1,16 @@
+{% extends 'auth_layout.html' %} 
+{% load crispy_forms_tags %} 
+{% block content %}
+<div class="registration-form-container">
+        <h1>CREATE YOUR QUESTIONTIME ACCOUNT</h1>
+	<form method="POST">
+		{% csrf_token %}
+        <!-- {% crispy form %} -->
+        {{ form }}
+		<button type="submit" class="btn btn-sm btn-outline-primary">
+			CREATE ACCOUNT
+		</button>
+	</form>
+</div>
+
+{% endblock %}

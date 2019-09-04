@@ -14,8 +14,35 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+# one_step.views eliminates email verification. To learn more:
+# django-registration.readthedocs.io/en/3.0/activation-workflow.html
+from django_registration.backends.one_step.views import RegistrationView
+
+from users.forms import CustomUserForm
 
 urlpatterns = [
+    # admin login
     path('admin/', admin.site.urls),
+
+    # registration via browser
+    path("accounts/register/", RegistrationView.as_view(
+        form_class=CustomUserForm, success_url="/",),
+        name="django_registration_register"),
+
+    # login via browser, redundancies
+    path("accounts/", include("django_registration.backends.one_step.urls")),
+
+    # login via browser, redundancies
+    path("accounts/", include("django.contrib.auth.urls")),
+
+    # login via browsable API
+    path("api-auth/", include("rest_framework.urls")),
+
+    # login via REST
+    path("api/rest-auth/", include("rest_auth.urls")),
+
+    # registration via REST
+    path("api/rest-auth/registration/",
+         include("rest_auth.registration.urls")),
 ]
