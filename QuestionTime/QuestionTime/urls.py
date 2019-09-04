@@ -14,7 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-# re_path allows us to redirect based on regex
+# re_path allows us to redirect based on regex -
+# we want to redirect every request to index template view.
 from django.urls import include, path, re_path
 # one_step.views eliminates email verification. To learn more:
 # django-registration.readthedocs.io/en/3.0/activation-workflow.html
@@ -38,6 +39,9 @@ urlpatterns = [
     # login via browser, redundancies
     path("accounts/", include("django.contrib.auth.urls")),
 
+    # access views within User Api
+    path("api/", include("users.api.urls")),
+
     # login via browsable API
     path("api-auth/", include("rest_framework.urls")),
 
@@ -48,5 +52,6 @@ urlpatterns = [
     path("api/rest-auth/registration/",
          include("rest_auth.registration.urls")),
 
-    re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point ")
+    re_path(r"^.*$", IndexTemplateView.as_view(), name="entry-point")
+
 ]

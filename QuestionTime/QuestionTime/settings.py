@@ -51,7 +51,9 @@ INSTALLED_APPS = [
 
     'crispy_forms',
 
-    'users'
+    'users',
+    'questions',
+
 ]
 
 MIDDLEWARE = [
@@ -155,5 +157,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-    )
+    ),
+    # users must be authenticated to access endpoints
+    'DEFAULT_PERMISSION_CLASSES':
+    # note comma at end of string to indicate tuple
+        ('rest_framework.permissions.IsAuthenticated',)
 }
