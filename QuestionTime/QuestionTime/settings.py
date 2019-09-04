@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'udq0wpb0@m6$9%ok3c1d&)3&q!*nvv_91s!*(yfc1v7*owkcru'
+SECRET_KEY = 'r(ga!q0h(cq-f^b2cc-49^-vdb#mslv@7(zy12d&g_)m4@o+v#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,21 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-
-    'rest_framework',
-    'rest_framework.authtoken',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-    'rest_auth',
-    'rest_auth.registration',
-
-    'crispy_forms',
-
-    'users'
 ]
 
 MIDDLEWARE = [
@@ -69,8 +54,7 @@ ROOT_URLCONF = 'QuestionTime.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        # below is inserted to tell Django where to look for templates
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -129,35 +113,8 @@ USE_L10N = True
 
 USE_TZ = True
 
-# LOGIN and LOGOUT SETTINGS
-
-LOGIN_URL = "accounts/login/"
-LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Registering Custom User Model
-AUTH_USER_MODEL = "users.CustomUser"
-
-# Telling Crispy which template to use
-CRISPY_TEMPLATE_PACK = "bootstrap4"
-CRISPY_FAIL_SILENTLY = not DEBUG
-
-# Django.contrib.sites 
-SITE_ID = 1
-
-# Django-allauth
-ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_EMAIL_REQUIRED = (True)
-
-# Django-REST-Framework
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    )
-}
