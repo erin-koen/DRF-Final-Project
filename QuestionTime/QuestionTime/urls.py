@@ -39,6 +39,9 @@ urlpatterns = [
     # login via browser, redundancies
     path("accounts/", include("django.contrib.auth.urls")),
 
+    # access views within Questions Api
+    path("api/", include("questions.api.urls")),
+
     # access views within User Api
     path("api/", include("users.api.urls")),
 
