@@ -161,5 +161,8 @@ REST_FRAMEWORK = {
     # users must be authenticated to access endpoints
     'DEFAULT_PERMISSION_CLASSES':
     # note comma at end of string to indicate tuple
-        ('rest_framework.permissions.IsAuthenticated',)
+        ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # page size is low ot be developer friendly for front-end
+    'PAGE_SIZE': 2
 }
