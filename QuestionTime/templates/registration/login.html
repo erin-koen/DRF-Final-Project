@@ -1,14 +1,15 @@
 {% extends 'auth_layout.html' %} 
 {% load crispy_forms_tags %} 
-{% block content %}
+
+{% block auth %}
 <div class="login-form-container">
 	<h1>Question Time</h1>
 	<p class="lead text-muted">Share your knowledge!</p>
 	<form method="POST">
         {% csrf_token %} 
-        {% crispy form %}
+        <!-- {% crispy form %} -->
         <!-- Crispy forms isn't working - not making a call on the submit. Not worth debugging at the moment, but I'll come back to it.  -->
-        <!-- {{ form }} -->
+        {{ form }}
 		<button type="submit" class="btn btn-sm btn-outline-primary">
 			LOGIN
 		</button>

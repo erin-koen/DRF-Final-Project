@@ -1,47 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-			crossorigin="anonymous"
-		/>
+{% extends "base.html" %}
+{% block style %}
+<title>Question Time</title>
+<style>
+	html,
+	body {
+		height: 100%l font-family;
+	}
 
-		<title>Question Time</title>
-		<style>
-html, body {
-    height: 100%l
-    font-family
-}
+	.login-form-container {
+		width: 300px;
+		margin: auto;
+	}
 
-			.login-form-container {
-				width: 300px;
-				margin: auto;
-			}
+	.registration-form-container {
+		width: 400px;
+		margin: auto;
+	}
 
-			.registration-form-container {
-				width: 400px;
-				margin: auto;
-			}
+	.outer-area {
+		margin-top: 100px;
+	}
+</style>
+{% endblock %} 
 
-            .outer-area{
-                margin-top: 100px;
-            }
-
-            .auth-box{
-
-            }
-		</style>
-	</head>
-	<body>
-		<div class="outer-area">
-			<div class="auth-box text-center">
-				{% block content %} {% endblock %}
-			</div>
-		</div>
-	</body>
-</html>
+{% block content %}
+<div class="outer-area">
+	<div class="auth-box text-center">
+		{% block auth %} 
+		{% endblock %}
+	</div>
+</div>
+{% endblock %}

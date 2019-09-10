@@ -15,6 +15,7 @@ django-allauth = "*"
 django-registration = "*"
 django-crispy-forms = "*"
 django-webpack-loader = "*"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.7"
